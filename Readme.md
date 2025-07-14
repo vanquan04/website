@@ -1,88 +1,106 @@
-# Dự án Quản lý Bán hàng - Webbandt
+🛒 Dự án Web Bán Hàng Trực Tuyến – Webbandt
+📌 1. Giới Thiệu
+Webbandt là một website bán hàng trực tuyến đơn giản và hiệu quả, cung cấp các tính năng cơ bản cho người dùng như:
 
-## 1. Giới thiệu
-Dự án này là một website bán hàng trực tuyến, hỗ trợ quản lý giỏ hàng, tìm kiếm sản phẩm và xử lý thanh toán.
+Xem danh sách sản phẩm theo thương hiệu (iPhone, Samsung, Xiaomi, Oppo, Realme)
 
-## 2. Cài đặt
-### 2.1. Yêu cầu hệ thống
-- PHP 7.4 trở lên
-- MySQL
-- Apache/Nginx
+Thêm sản phẩm vào giỏ hàng
 
-### 2.2. Cài đặt
-1. Clone hoặc tải source code về máy:
-   ```sh
-   git clone <repo-url>
-   ```
-2. Cấu hình cơ sở dữ liệu trong `Config/ketnoi.php` và `ADMIN/connect.php`
-3. Import database vào MySQL:
-   - Mở MySQL hoặc phpMyAdmin
-   - Tạo một database mới tên `webbandt`
-   - Import file `Database/webbandt.sql`
-4. Khởi chạy server Apache/Nginx và truy cập trang web
+Tìm kiếm sản phẩm theo tên
 
-## 3. Cấu trúc thư mục `📁src`
+Thanh toán đơn hàng
+
+Quản lý đơn hàng đã đặt
+
+Website phù hợp để học tập, nghiên cứu hoặc triển khai cho các shop nhỏ – vừa.
+
+⚙️ 2. Hướng Dẫn Cài Đặt
+2.1. Yêu Cầu Hệ Thống
+✅ PHP phiên bản 7.4 trở lên
+
+✅ MySQL (phiên bản >= 5.7)
+
+✅ Máy chủ web Apache hoặc Nginx
+
+🛠 Có thể dùng phpMyAdmin để thao tác với cơ sở dữ liệu (không bắt buộc)
+
+2.2. Các Bước Triển Khai
+Tải mã nguồn về máy:
+
+bash
+Sao chép
+Chỉnh sửa
+git clone <link-github-repo>
+Cấu hình kết nối cơ sở dữ liệu:
+
+Mở các file:
+
+Config/ketnoi.php
+
+ADMIN/connect.php
+
+Thay đổi thông tin như:
+
+php
+Sao chép
+Chỉnh sửa
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$dbname = 'webbandt';
+Import cơ sở dữ liệu:
+
+Mở phpMyAdmin hoặc MySQL CLI
+
+Tạo database webbandt
+
+Import file Database/webbandt.sql:
+
+bash
+Sao chép
+Chỉnh sửa
+mysql -u root -p webbandt < Database/webbandt.sql
+Khởi chạy server Apache/Nginx
+
+Truy cập trình duyệt: http://localhost/src/index.php
+
+📂 3. Cấu Trúc Thư Mục Chính
 ```
 📁src/
-│── 📁ADMIN/
-│   │── connect.php
-│   └── ...
-│── 📁Config/
-│   │── ketnoi.php
-│   └── ...
-│── 📁css/
-│── 📁Database/
-│   │── webbandt.sql
-│── 📁img/
-│── add_to_cart.php
-│── cart.php
-│── checkout.php
-│── dsiphone.php
-│── dsoppo.php
-│── dsrealme.php
-│── dssamsung.php
-│── dsxiaomi.php
-│── get_cart_count.php
-│── index.php
-│── iphone.php
-│── login.php
-│── logout.php
-│── oppo.php
-│── product_detail.php
-│── realme.php
-│── samsung.php
-│── search.php
-│── signup.php
-│── tracuu_donhang.php
-│── xiaomi.php
-│── README.md
-│── Requiments.txt
-```
+├── 📁ADMIN/             # Khu vực quản trị (đăng nhập riêng)
+├── 📁Config/            # Cấu hình kết nối CSDL
+├── 📁Database/          # File SQL để import
+├── 📁css/               # Giao diện
+├── 📁img/               # Hình ảnh sản phẩm
+├── index.php           # Trang chủ
+├── cart.php            # Giỏ hàng
+├── checkout.php        # Thanh toán
+├── product_detail.php  # Chi tiết sản phẩm
+├── search.php          # Tìm kiếm
+├── login.php / signup.php / logout.php
+├── tracuu_donhang.php  # Theo dõi đơn hàng
+├── get_cart_count.php  # API đếm số lượng giỏ hàng
+└── ...
+🔑 4. Lưu Ý Khi Sử Dụng
+Phải đảm bảo MySQL và Apache đang hoạt động
 
-## 4. Lưu ý khi kết nối CSDL
-- Cần chỉnh sửa file `Config/ketnoi.php` và `ADMIN/connect.php` trước khi chạy.
-- Kiểm tra tên CSDL, username và password trước khi kết nối.
+Thư mục gốc dự án nên để trong htdocs (nếu dùng XAMPP)
 
-## 5. Hướng dẫn import Database
-1. Mở MySQL hoặc phpMyAdmin
-2. Tạo database mới tên `webbandt`
-3. Chạy lệnh sau để import database:
-   ```sh
-   mysql -u root -p webbandt < Database/webbandt.sql
-   ```
-4. Kiểm tra lại dữ liệu đã import thành công
+Đảm bảo file .sql được import thành công để tránh lỗi trang trắng
 
-## 6. File Requiments.txt
-```
+📄 5. File yêu cầu hệ thống (Requiments.txt)
+java
+Sao chép
+Chỉnh sửa
 PHP >= 7.4
 MySQL >= 5.7
 Apache/Nginx
 phpMyAdmin (tùy chọn)
-```
+📞 6. Liên Hệ Hỗ Trợ
+📧 Email: quannguyen04082004@gmail.com
 
-## 7. Liên hệ
-- Email: quannguyen04082004@gmail.com
-- SDT: 0325994526
+📱 SĐT/Zalo: 0325994526
 
-**Chúc bạn thành công!** 🚀
+🎉 Cảm Ơn Bạn Đã Sử Dụng Webbandt!
+Chúc bạn triển khai thành công hệ thống bán hàng trực tuyến của riêng mình 🚀
 
