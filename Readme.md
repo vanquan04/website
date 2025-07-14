@@ -81,7 +81,8 @@ phpMyAdmin (tùy chọn)
 ```
 
 ## 7. Liên hệ
-- Email: 20221964@eaut.edu.vn
+- Email: quannguyen04082004@gmail.com
+- SDT: 0325994526
 
 **Chúc bạn thành công!** 🚀
 
